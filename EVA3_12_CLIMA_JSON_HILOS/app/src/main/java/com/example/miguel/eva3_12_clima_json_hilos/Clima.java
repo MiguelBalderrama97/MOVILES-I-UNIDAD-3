@@ -5,6 +5,8 @@ public class Clima {
     private String ciudad, clima, desc_clima;
     private double temp;
 
+    public Clima(){}
+
     public Clima(int imagen_clima, String ciudad, String clima, String desc_clima, double temp) {
         this.imagen_clima = imagen_clima;
         this.ciudad = ciudad;
