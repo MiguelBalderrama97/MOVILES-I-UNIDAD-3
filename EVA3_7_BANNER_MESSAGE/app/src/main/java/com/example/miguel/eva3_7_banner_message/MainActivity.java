@@ -13,7 +13,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    private int speed = 1;
+    private int speed = 1000;
 
     private int index = 0;
     private List<Integer> list = new ArrayList();
@@ -68,6 +68,7 @@ public class MainActivity extends AppCompatActivity {
         sbSpeed.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                progress = 1000 - (progress);
                 speed = progress;
             }
 

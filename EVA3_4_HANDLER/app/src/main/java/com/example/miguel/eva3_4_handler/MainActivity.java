@@ -43,7 +43,8 @@ public class MainActivity extends AppCompatActivity {
         }
     };
 
-    private Thread tHilo2 = new Thread(){
+    private Thread tHilo2 =
+            new Thread(){
         @Override
         public void run() {
             super.run();

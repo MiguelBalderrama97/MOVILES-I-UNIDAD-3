@@ -32,9 +32,25 @@ public class MiServicio extends Service {
     public void onStart(Intent intent, int startId) {
         super.onStart(intent, startId);
         Log.wtf("MISERVICIO", "ONSTART");
+
+        tHilo = new Thread(){
+            @Override
+            public void run() {
+                super.run();
+                while(true){
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        };
+
         inMensaje = new Intent("MI_SERVICIO");
         inMensaje.putExtra("MENSAJE", "onStart");
         sendBroadcast(inMensaje);
+        tHilo.start();
     }
 
     @Override
@@ -44,5 +60,6 @@ public class MiServicio extends Service {
         inMensaje = new Intent("MI_SERVICIO");
         inMensaje.putExtra("MENSAJE", "onDestroy");
         sendBroadcast(inMensaje);
+        tHilo.interrupt();
     }
 }
